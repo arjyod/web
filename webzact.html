@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>webzact</title>
+</head>
+
+	<style>
+
+		body{
+			padding: 0;
+			margin: 0;
+			background: #D3D3D3;
+
+		}
+		iframe{
+			border: none;
+			top: 0;
+			left: 0;
+			width: 98vw;
+			height: 30vh;
+			object-fit: cover;
+
+		}
+		.button {
+			color: #000000;
+			padding: .2% 1%;
+			margin: 1%;
+			font-size: 115%;
+			border: none;
+			background: #fff;
+			border-radius: 15px;
+
+		}
+		.buttonsave {
+			color: #000000;
+			padding: .2% 1%;
+			margin: 1%;
+			font-size: 115%;
+			border: none;
+			background: #fff;
+			border-radius: 15px;
+
+		}
+		.finalsave {
+			color: #D3D3D3;
+			padding: .2% 1%;
+			margin: 1%;
+			font-size: 115%;
+			border: none;
+			background: transparent;
+			border-radius: 15px;
+
+		}
+		a {
+			color:#000000;
+			text-decoration:none;
+		}
+
+
+		
+		textarea {
+			overflow: scroll;
+		}
+
+		.body-c {
+			width: 97vw;
+			height: 0;
+			overflow: scroll;
+			border: none;
+			padding: 0;
+
+		}
+		.css-c {
+			width: 97vw;
+			height: 0;
+			overflow: scroll;
+			border: none;
+			padding: 0;
+		}
+		.js-c {
+			width: 97vw;
+			height: 0;
+			overflow: scroll;
+			border: none;
+			padding: 0;
+
+		}
+		.head-c{
+			width: 97vw;
+			height: 0;
+			overflow: scroll;
+			border: none;
+			padding: 0;
+
+		}
+		.conclu {
+			width: 97vw;
+			height: 0;
+			overflow: scroll;
+			border: none;
+			padding: 0;
+
+		}
+		input {
+			color: #000000;
+			padding: .2% 1%;
+			margin: 1%;
+			font-size: 115%;
+			border: none;
+			background: #fff;
+			border-radius: 15px;
+		}
+
+		
+
+	</style>
+
+	<body>
+		<div class="webzact">
+
+			<iframe  type="output" class="output" id="output"></iframe>
+			<input type="text" id="inputid" placeholder="	filename" required></input>
+
+			<button class="button" id="buttonhead" onclick="buttonhead()">head</button>			
+			<button class="button" id="buttoncss" onclick="buttoncss()">css</button>
+			<button class="button" id="buttonbody" onclick="buttonbody()">body</button>
+			<button class="button" id="buttonjs" onclick="buttonjs()">js</button>
+			<button class="button" id="buttonconclu" onclick="buttonconclu()">conclu</button>
+
+			<button class="buttonsave" id="buttonsave" onclick="buttonsave()">save</button>
+			<button class="finalsave" id="finalsave" ></button >
+			
+
+		</div>
+
+			<textarea type="head" class="head-c" id="head-id" placeholder="head"><!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+</head></textarea>
+			<textarea type="css" class="css-c" id="css-id" placeholder="css"> 
+<style>
+
+
+
+</style></textarea>
+			<textarea type="body" class="body-c" id="body-id" placeholder="body"> 
+<body>
+
+
+
+
+<script>
+</textarea>
+			<textarea type="js" class="js-c" id="js-id" placeholder="js"></textarea>
+			<textarea class="conclu" id="conclu"> 
+</script>
+</body>
+</html></textarea>
+			
+		
+			
+		<script type="text/javascript">
+
+				function run(){
+				let text1= document.getElementById("head-id").value;
+				let text2= document.getElementById("css-id").value;
+				let text3= document.getElementById("body-id").value;
+				let text4= document.getElementById("js-id").value;
+				let output= document.getElementById("output");
+				
+				output.contentDocument.documentElement.innerHTML = text1+text2+text3;
+				output.contentWindow.eval(text4);
+				
+			}
+
+				document.getElementById("head-id").addEventListener("keyup",run);
+				document.getElementById("css-id").addEventListener("keyup",run);
+				document.getElementById("body-id").addEventListener("keyup",run);
+
+			function assam(){
+				document.getElementById("finalsaveanker").remove() ;
+				document.getElementById("finalsave").style.background="transparent" ;
+
+			}
+				document.getElementById("head-id").addEventListener("keyup",assam);
+				document.getElementById("css-id").addEventListener("keyup",assam);
+				document.getElementById("body-id").addEventListener("keyup",assam);
+				document.getElementById("js-id").addEventListener("keyup",assam);
+				document.getElementById("conclu").addEventListener("keyup",assam);
+				document.getElementById("inputid").addEventListener("keyup",assam);
+
+			function buttonsave(){
+				let htmlhead= document.getElementById("head-id").value;
+				let css= document.getElementById("css-id").value;
+				let htmlbody= document.getElementById("body-id").value;
+				let js=document.getElementById("js-id").value;
+				let conclu= document.getElementById("conclu").value;
+			
+				 input1= document.getElementById("inputid").value;
+				 document.getElementById("finalsave").style.background="#fff"
+				
+				uriContent = "data:application/octet-stream," + encodeURIComponent(htmlhead+css+htmlbody+js+conclu); 		
+	document.getElementById("finalsave").innerHTML = "<a id='finalsaveanker' href=" + uriContent + " download=\"" + input1 + "\">final save</a>";  	
+
+			}
+
+			var toggle1 = 1;
+	       function buttonhead() {
+	         if( toggle1 == 1) {
+	           document.getElementById("head-id").style.height="10vh";
+	           toggle1 = 0;
+	        } else if(toggle1 ==0) {
+	          document.getElementById("head-id").style.height="0";
+	          toggle1 = 1;
+	        }
+	      }
+	      var toggle2 = 1;
+	       function buttoncss() {
+	         if( toggle2 == 1) {
+	           document.getElementById("css-id").style.height="25vh";
+	           toggle2 = 0;
+	        } else if(toggle2 ==0) {
+	          document.getElementById("css-id").style.height="0";
+	          toggle2 = 1;
+	        }
+	      }
+	      var toggle3 = 1;
+	       function buttonbody() {
+	         if( toggle3 == 1) {
+	           document.getElementById("body-id").style.height="25vh";
+	           toggle3 = 0;
+	        } else if(toggle3 ==0) {
+	          document.getElementById("body-id").style.height="0";
+	          toggle3 = 1;
+	        }
+	      }
+	      var toggle4 = 1;
+	       function buttonjs() {
+	         if( toggle4 == 1) {
+	           document.getElementById("js-id").style.height="25vh";
+	           toggle4 = 0;
+	        } else if(toggle4 ==0) {
+	          document.getElementById("js-id").style.height="0";
+	          toggle4 = 1;
+	        }
+	      }
+	      var toggle5 = 1;
+	       function buttonconclu() {
+	         if( toggle5 == 1) {
+	           document.getElementById("conclu").style.height="10vh";
+	           toggle5 = 0;
+	        } else if(toggle5 ==0) {
+	          document.getElementById("conclu").style.height="0";
+	          toggle5 = 1;
+	        }
+	      }
+
+			
+		</script>
+
+	</body>
+</html>
